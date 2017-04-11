@@ -17,7 +17,7 @@ MVC在iOS上被苹果官方推崇，诚然在Android上并没有十分明显模�
 ### 一些想法
 由此我们不得不使用模式来解决问题。我的想法是，使用一个类来封装所有View的修改与监听；再由这个类来与Activity通讯，让Activity只负责业务上的逻辑，做一个更纯粹的类；而View与数据层的交互都是需要经过Activity这个业务员。
 
-View封装 |<====> |Activity实现业务 |<====> 数据层
+View封装 <====> Activity实现业务 <====> 数据层
 
 Android的Activity有生命周期，开发时应该尽量适应其特性，能使用Server的时候也尽可能避免单例模型。
 
@@ -26,25 +26,25 @@ Android的Activity有生命周期，开发时应该尽量适应其特性，能�
 
 （PS：请自行忽略代码里的反射和声明，纯粹无聊之作）
 
-##### Data Bean
+#### Data Bean
 在demo中，我只想让它能成为一个安静的数据结构。所有方法只是为了更好的表达自己或者最多也就修改一下自己的属性。它不应该做出越界的行为，不能改变其他对象。
 
-##### Content View
+#### Content View
 它是负责View的逻辑，比如TextView修改文字，Button受点击，或者列表滚动时，ActionBar要改变透明度...
 
 在与Activity通讯中，Demo中通过接口实现。在数据交互时会直接传递数据结构，原则上只能对其读取不能修改。
 
-##### Activity Fragment
+#### Activity Fragment
 这两个做为有生命周期特征的业务，其实并没有什么毛病，我们可以理解为，业务本身也有周期性。
 
 如果觉得它们的生命周期特征对业务的实现有影响，别忘了还有后台Server这个特殊的Context可以来帮忙。
 
-##### Task
+#### Task
 task为后台异步处理任务，根据需要可以使用线程池，HandleLooper，AsyncTask等等来实现。
 
 一个Request可以对应一个网络接口，一个数据库读取操作，一件本地任务，或者是一套任务逻辑。并把处理的结果传递给Activity，Request作为后台任务不应该对Activity持有强引用。
 
-##### 为什么没有 RxJava + Retrofit + dagger2
+#### 为什么没有 RxJava + Retrofit + dagger2
 首先这个Demo只是演示，没必要那么复杂。
 
 其次我喜欢简单，程序从简单到复杂，从复杂到结束（因为此时会引发重构）
