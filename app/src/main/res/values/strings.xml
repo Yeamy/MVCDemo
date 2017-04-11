@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PatternDemo</string>
+    <string name="action_back">Back</string>
+    <string name="action_showName">Show Name</string>
+</resources>

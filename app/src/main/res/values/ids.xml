@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_title" type="id" />
+    <item name="swipe" type="id" />
+    <item name="recycler" type="id" />
+    <item name="action_back" type="id" />
+    <item name="btn_showName" type="id" />
+</resources>
