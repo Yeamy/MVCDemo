@@ -54,3 +54,21 @@ task为后台异步处理任务，根据需要可以使用线程池，HandleLoop
 学习编程的重点是学习其思想，而不是学习如何使用一套框架。假如有天找不到合适的轮子，我们可以自己造一个。
 
 OOP（面向对象）出现的时候，人们以为POP（面向过程）的时代即将结束。然而这么多年过去了，现实告诉我们，他们各有各的世界。而编程世界里，活的最坚强的其实是BOP（面向Boss编程），认真你就输了！
+
+
+License
+-------
+
+Copyright 2016 Yeamy.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+License for the specific language governing permissions and limitations under
+the License.
