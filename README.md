@@ -16,11 +16,13 @@ Android上对Context依赖性很强，Android上很多操作依赖Context来执�
 
 View布局控件刚好是V，这点无争议。Android上控件也都只会包含显示的逻辑，我们为了实现某种功能的独立，也会把它封装成自定义控件。
 
+至于Model层，不同APP需求不同，也不是本文讨论重点。
+
 ### 对MVP的见解
 ------
 在原本的设计中，大量的功能集合在Activity中。虽说移动设计一切从简，但功能向复杂化发展不可避免。Google为了解决这种混乱，推出了Fragment来拆分原有的Activity。其实在Fragment出现之前，类似的情况下（比如存在多个tab的界面），也是采用多个类似Fragment的对象来切割Activity功能。
 
-然而事实证明Fragment的依然存在局限，Fragment只是切割功能，而功能内部业务逻辑与界面逻辑的混乱却无法解决。所以MVP解决方案由此而生。（[MVC与MVP的差异直观的介绍](http://blog.csdn.net/duo2005duo/article/details/50594757/)）
+然而事实证明Fragment依然存在局限性，Fragment只是切割功能，而功能内部业务逻辑与界面逻辑的混乱却无法解决。所以MVP解决方案由此而生。（[MVC与MVP的差异直观的介绍](http://blog.csdn.net/duo2005duo/article/details/50594757/)）
 
 Google官方也推出了官方MVP示例[TODO-MVP](http://blog.csdn.net/lavor_zl/article/details/51180537)。但是本人觉得在这个项目里Activity与Fragment的局面比较尴尬，原本属于C的Fragment被分配到V，Activity依然是调度者，但似乎与Presenter的角色有些重复（再次声明Activity是Context，这点很重要！），假设去除Fragment，Activity到底属于什么。
 
@@ -33,9 +35,9 @@ Presenter只负责业务上的逻辑，做一个更纯粹的业务员。P由Acti
 Model层根据需求各有不同，此处不做详解。
 
 | View        | Presenter    |  Model  |
-| -----  | -----  | ---- |
-| ViewContent	|Activity/Fragment	|OkHttp/sqlite...|
-| 控制widget	|业务逻辑				|数据交互|
+| ----- | -----  | ---- |
+| ViewContent	|Activity / Fragment	|OkHttp/sqlite...|
+| 实现所有View逻辑，隔离用户与P |业务逻辑，隔离V和M，通过接口与两者交互 |数据交互|
 
 ### 后话
 ------
